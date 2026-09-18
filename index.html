@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colouring With Care — colouring pages and memory cards for older people</title>
+<meta name="description" content="Gentle colouring pages and reminiscence cards for older people and those living with dementia. Made with care, inspired by the mid-20th century.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#EFE7D8;
+    --cream:#FAF6EC;
+    --rose:#C1806E;
+    --rose-deep:#A6614F;
+    --sage:#7C8968;
+    --ink:#3A2E2A;
+    --ink-soft:#6B5D54;
+    --denim:#66809A;
+    --line:rgba(58,46,42,0.14);
+    --radius-card: 4px;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --parchment:#241E1A;
+      --cream:#2B2420;
+      --rose:#D99C89;
+      --rose-deep:#E4AF9F;
+      --sage:#9CAE86;
+      --ink:#F1E9DD;
+      --ink-soft:#C9BCAE;
+      --denim:#8FADC7;
+      --line:rgba(241,233,221,0.16);
+    }
+  }
+  :root[data-theme="dark"]{
+    --parchment:#241E1A;
+    --cream:#2B2420;
+    --rose:#D99C89;
+    --rose-deep:#E4AF9F;
+    --sage:#9CAE86;
+    --ink:#F1E9DD;
+    --ink-soft:#C9BCAE;
+    --denim:#8FADC7;
+    --line:rgba(241,233,221,0.16);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:"Work Sans", -apple-system, sans-serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:500;
+    line-height:1.12;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--denim); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
+
+  /* header */
+  header{
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .wordmark{
+    font-family:"Fraunces", serif;
+    font-size:1.35rem;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .wordmark span{color:var(--rose-deep);}
+  nav{display:flex; gap:28px; font-size:0.95rem;}
+  nav a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav a:hover{color:var(--ink); border-color:var(--rose);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--line); border-radius:3px; padding:8px 12px; font-size:0.9rem; color:var(--ink); cursor:pointer;}
+
+  /* hero */
+  .hero{padding:64px 0 76px;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero h1{font-size:clamp(2.1rem, 4vw, 3.1rem); max-width:11ch;}
+  .hero .lede{margin-top:22px; font-size:1.12rem; color:var(--ink-soft); max-width:42ch;}
+  .hero .cta-row{margin-top:32px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:2px;
+    text-decoration:none;
+    font-size:0.98rem;
+    font-weight:500;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--rose-deep); color:var(--cream);}
+  .btn-primary:hover{background:var(--rose);}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--rose-deep); color:var(--rose-deep);}
+
+  .hero-art{position:relative;}
+  .hero-art svg{width:100%; height:auto;}
+
+  /* story */
+  .story{padding:70px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--cream);}
+  .story .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
+  .story h2{font-size:1.9rem; max-width:12ch;}
+  .story p{color:var(--ink-soft); max-width:52ch; margin-top:18px;}
+  .story p + p{margin-top:14px;}
+
+  /* products */
+  .products{padding:80px 0;}
+  .products > .wrap > h2{font-size:1.9rem; max-width:16ch;}
+  .products > .wrap > p.intro{color:var(--ink-soft); margin-top:14px; max-width:48ch;}
+  .product-grid{
+    margin-top:44px;
+    display:grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap:22px;
+  }
+  .product-card{
+    border:1px solid var(--line);
+    padding:30px 26px;
+    background:var(--cream);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .product-card:first-child{grid-row:span 1;}
+  .product-card .tag{font-size:0.82rem; color:var(--sage); font-weight:500;}
+  .product-card h3{font-size:1.3rem; margin-top:2px;}
+  .product-card p{color:var(--ink-soft); font-size:0.97rem; margin:0; flex-grow:1;}
+  .product-card a{font-size:0.94rem; color:var(--rose-deep); text-decoration:none; border-bottom:1px solid var(--rose); width:fit-content;}
+  .product-card a:hover{color:var(--rose);}
+  .product-icon{width:44px; height:44px; color:var(--rose-deep);}
+
+  /* promise */
+  .promise{padding:70px 0; background:var(--sage); color:var(--cream);}
+  .promise blockquote{
+    margin:0;
+    font-family:"Fraunces", serif;
+    font-size:clamp(1.5rem, 3vw, 2.1rem);
+    font-weight:500;
+    line-height:1.32;
+    max-width:26ch;
+  }
+  .promise cite{display:block; margin-top:20px; font-style:normal; font-family:"Work Sans", sans-serif; font-size:0.95rem; opacity:0.85;}
+
+  /* footer */
+  footer{padding:56px 0 40px;}
+  footer .wrap{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:start;}
+  .footer-links{display:flex; gap:24px; margin-top:18px; font-size:0.95rem;}
+  .footer-links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent;}
+  .footer-links a:hover{color:var(--ink); border-color:var(--rose);}
+  .newsletter{border:1px solid var(--line); padding:24px; background:var(--cream);}
+  .newsletter h3{font-size:1.05rem; margin-bottom:8px;}
+  .newsletter p{margin:0 0 16px; color:var(--ink-soft); font-size:0.92rem;}
+  .newsletter form{display:flex; gap:10px;}
+  .newsletter input[type=email]{
+    flex-grow:1; padding:11px 12px; border:1px solid var(--line); background:var(--parchment); color:var(--ink); font-family:inherit; font-size:0.92rem;
+  }
+  .newsletter button{
+    padding:11px 18px; border:none; background:var(--rose-deep); color:var(--cream); font-family:inherit; font-size:0.92rem; cursor:pointer;
+  }
+  .newsletter button:hover{background:var(--rose);}
+  .copyright{margin-top:44px; padding-top:24px; border-top:1px solid var(--line); font-size:0.85rem; color:var(--ink-soft);}
+
+  @media (max-width: 860px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .hero-art{order:-1; max-width:340px; margin:0 auto;}
+    .story .wrap{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr;}
+    footer .wrap{grid-template-columns:1fr;}
+    nav{
+      position:absolute; top:100%; left:0; right:0; background:var(--parchment);
+      flex-direction:column; padding:18px 28px; border-bottom:1px solid var(--line);
+      display:none;
+    }
+    nav.open{display:flex;}
+    .nav-toggle{display:block;}
+    header{position:relative;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="wordmark">Colouring<span> With Care</span></div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Menu</button>
+    <nav id="site-nav">
+      <a href="#story">Our story</a>
+      <a href="#products">Shop</a>
+      <a href="#" id="etsy-link-nav">Etsy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Colouring pages that bring old memories back into the room</h1>
+        <p class="lede">Gentle, nostalgic colouring pages and conversation cards made for older people and those living with dementia — each one drawn from the everyday objects and rooms of the mid‑20th century.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#" id="etsy-link-hero">Visit the Etsy shop</a>
+          <a class="btn btn-ghost" href="#story">Read our story</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <!-- gentle line-art radiogram / record player, colouring-page style -->
+          <rect x="60" y="210" width="300" height="120" rx="6"/>
+          <rect x="60" y="210" width="300" height="120" rx="6" stroke="var(--rose)" stroke-width="0.8" transform="translate(4,4)"/>
+          <circle cx="150" cy="270" r="34" stroke="var(--denim)"/>
+          <circle cx="150" cy="270" r="6" stroke="var(--denim)"/>
+          <rect x="220" y="245" width="110" height="50" rx="4" stroke="var(--sage)"/>
+          <line x1="235" y1="258" x2="235" y2="282"/>
+          <line x1="250" y1="252" x2="250" y2="288"/>
+          <line x1="265" y1="260" x2="265" y2="280"/>
+          <line x1="280" y1="250" x2="280" y2="290"/>
+          <line x1="295" y1="258" x2="295" y2="282"/>
+          <line x1="310" y1="262" x2="310" y2="278"/>
+          <path d="M70 210 C70 150, 120 120, 150 90" stroke="var(--rose)"/>
+          <circle cx="150" cy="90" r="4" fill="var(--rose)" stroke="none"/>
+          <path d="M90 340 h300" stroke="var(--ink)" stroke-width="1.2"/>
+          <ellipse cx="240" cy="345" rx="150" ry="6" stroke="var(--line)" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <h2>Why colouring, why memory</h2>
+      <div>
+        <p>Colouring With Care began with my own family — sitting with a relative living with dementia, looking for something we could still do together. A blank colouring page didn't always work. But one drawn from a 1950s kitchen, or a jukebox, or a seaside deckchair — that opened a conversation.</p>
+        <p>Every page is drawn to be recognisable, not abstract: familiar rooms, familiar objects, familiar decades. They're designed to be easy to hold and colour, and to give carers and family an easy way in — something to talk about, not just something to fill in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="wrap">
+      <h2>What's in the shop</h2>
+      <p class="intro">Three ways to bring a little of the past back — as a single page, a set of conversation cards, or a full book.</p>
+      <div class="product-grid">
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="8" width="32" height="32" rx="2"/><path d="M14 30 L20 22 L26 27 L34 16" /><circle cx="16" cy="16" r="2.5"/></svg>
+          <span class="tag">Printable colouring pages</span>
+          <h3>Etsy shop</h3>
+          <p>Downloadable colouring pages themed around 1950s–70s British life — jukeboxes, front rooms, seaside days — sized for easy printing at home or in a care setting.</p>
+          <a href="#" id="etsy-link-card">Browse the shop →</a>
+        </div>
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="10" y="6" width="22" height="30" rx="2"/><rect x="16" y="12" width="22" height="30" rx="2" fill="var(--cream)"/></svg>
+          <span class="tag">In development</span>
+          <h3>Colour &amp; Recollect</h3>
+          <p>A deck of colouring and conversation cards pairing an image with a gentle reminiscence prompt — made for one-to-one time between carers and the people they look after.</p>
+          <a href="#" id="deck-link">Coming soon</a>
+        </div>
+        <div class="product-card">
+          <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 8 h20 a4 4 0 0 1 4 4 v28 h-24 z"/><line x1="10" y1="8" x2="10" y2="40"/></svg>
+          <span class="tag">Book</span>
+          <h3>Grandma's Memory Treasures</h3>
+          <p>A 35-page colouring book of vintage household objects, published for anyone who wants a full collection to work through at their own pace.</p>
+          <a href="#" id="book-link">Find the book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise">
+    <div class="wrap">
+      <blockquote>
+        Every page is made to feel cherished, not disposable — something worth the time it takes to colour it in.
+        <cite>— Sara, Colouring With Care</cite>
+      </blockquote>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="wordmark">Colouring<span> With Care</span></div>
+      <div class="footer-links">
+        <a href="#" id="etsy-link-footer">Etsy shop</a>
+        <a href="#" id="pinterest-link-footer">Pinterest</a>
+        <a href="mailto:hello@colouringwithcare.com">Email</a>
+      </div>
+    </div>
+    <div class="newsletter">
+      <h3>New pages, first</h3>
+      <p>A short note whenever a new set is released — no more than once or twice a month.</p>
+      <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you';">
+        <label class="visually-hidden" for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@email.com" required>
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="copyright">© <span id="year"></span> Colouring With Care. Made by hand, one page at a time.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('site-nav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  // TODO: replace these placeholder hrefs with your real Etsy / Pinterest URLs
+  var etsyURL = "#"; // e.g. https://www.etsy.com/shop/YourShopName
+  var pinterestURL = "#";
+  document.querySelectorAll('#etsy-link-nav, #etsy-link-hero, #etsy-link-card, #etsy-link-footer').forEach(function(el){ el.href = etsyURL; });
+  document.getElementById('pinterest-link-footer').href = pinterestURL;
+</script>
+
+</body>
+</html>
